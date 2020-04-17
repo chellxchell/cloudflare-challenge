@@ -19,6 +19,8 @@ async function pickURL(){
 // element handler for HTML Rewriter
 class ElementHandler {
   element(element) {
+    let classes = element.getAttribute('class')
+
     if (element.tagName == 'h1'){
       element.setInnerContent("Welcome to Chelly's project!")
       element.setAttribute('style', 'color: #fc9f9f; font-weight: bold')
@@ -37,6 +39,19 @@ class ElementHandler {
     else if (element.tagName == "p"){
       element.setInnerContent("My name is Chelly Compendio and I would like to be a full-stack developer intern at Cloudflare.")
     }
+    
+    else if (element.tagName == "body"){
+      element.setAttribute('style', "background-image: url('https://www.designyourway.net/blog/wp-content/uploads/2018/11/pastel-background-goo-1250x834.jpg'); background-repeat: no-repeat; background-size: cover")
+    }
+
+      if (classes){
+        if (classes.includes("bg-green-100")){
+          element.setAttribute('style', 'background-color: #fc9f9f;')
+        }
+        if (classes.includes("text-green-600")){
+          element.setAttribute('style', 'color: white')
+        }
+      }
   }
 
 }
